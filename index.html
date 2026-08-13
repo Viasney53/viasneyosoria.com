@@ -4,81 +4,701 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Viasney Osoria Pichardo | Asesora Financiera</title>
-  <meta name="description" content="Orientación financiera personalizada para ayudarte a construir un futuro más seguro.">
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #17324d;
+      background: #f7fbff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background: white;
+      padding: 16px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 25px;
+      color: #1769aa;
+      letter-spacing: 1px;
+    }
+
+    .brand-text strong {
+      display: block;
+      color: #17324d;
+      font-size: 16px;
+    }
+
+    .brand-text span {
+      color: #607d94;
+      font-size: 13px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-size: 14px;
+      font-weight: 600;
+      color: #31566f;
+    }
+
+    nav a:hover {
+      color: #1769aa;
+    }
+
+    .whatsapp-top {
+      background: #25d366;
+      color: white;
+      padding: 10px 17px;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    section {
+      padding: 75px 6%;
+    }
+
+    .hero {
+      min-height: 650px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+      background: linear-gradient(135deg, #eaf7ff, #ffffff);
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 5vw, 65px);
+      line-height: 1.05;
+      color: #123b5d;
+      margin-bottom: 20px;
+    }
+
+    .hero h2 {
+      color: #1769aa;
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #506879;
+      margin-bottom: 28px;
+      max-width: 600px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 23px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: #1769aa;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #25d366;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-photo {
+      text-align: center;
+    }
+
+    .hero-photo img {
+      width: min(100%, 430px);
+      border-radius: 22px;
+      box-shadow: 0 15px 40px rgba(23,105,170,.18);
+    }
+
+    .quick-info {
+      background: #1769aa;
+      color: white;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 28px 6%;
+      text-align: center;
+    }
+
+    .quick-info div {
+      padding: 10px;
+    }
+
+    .quick-info strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto 45px;
+    }
+
+    .section-title span {
+      color: #1769aa;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 13px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      color: #123b5d;
+      margin: 8px 0 12px;
+    }
+
+    .section-title p {
+      color: #607d94;
+      font-size: 17px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 55px;
+      align-items: center;
+      background: white;
+    }
+
+    .about-card {
+      background: #eaf7ff;
+      padding: 35px;
+      border-radius: 25px;
+    }
+
+    .about-card h3 {
+      color: #1769aa;
+      margin-bottom: 12px;
+      font-size: 24px;
+    }
+
+    .about p {
+      color: #506879;
+      margin-bottom: 15px;
+    }
+
+    .services {
+      background: #f7fbff;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .service {
+      background: white;
+      padding: 28px 20px;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(20,70,100,.08);
+      text-align: center;
+    }
+
+    .service h3 {
+      color: #1769aa;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .service p {
+      color: #607d94;
+      font-size: 14px;
+    }
+
+    .solutions {
+      background: white;
+    }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .solution-grid img {
+      width: 100%;
+      max-width: 430px;
+      display: block;
+      margin: auto;
+    }
+
+    .solution-text h3 {
+      font-size: 30px;
+      color: #123b5d;
+      margin-bottom: 15px;
+    }
+
+    .solution-text p {
+      color: #607d94;
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+
+    .why {
+      background: #eaf7ff;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .why-card {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+    }
+
+    .why-card h3 {
+      color: #1769aa;
+      margin-bottom: 10px;
+    }
+
+    .why-card p {
+      color: #607d94;
+    }
+
+    .contact {
+      background: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+    }
+
+    .contact-info {
+      background: #123b5d;
+      color: white;
+      padding: 40px;
+      border-radius: 22px;
+    }
+
+    .contact-info h3 {
+      font-size: 30px;
+      margin-bottom: 18px;
+    }
+
+    .contact-info p {
+      margin: 13px 0;
+    }
+
+    .contact-info a {
+      color: white;
+      font-weight: bold;
+    }
+
+    form {
+      background: #f7fbff;
+      padding: 30px;
+      border-radius: 22px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #c9d9e5;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    footer {
+      background: #0e2d46;
+      color: white;
+      text-align: center;
+      padding: 30px 6%;
+    }
+
+    footer strong {
+      font-size: 18px;
+    }
+
+    footer p {
+      margin-top: 7px;
+      opacity: .85;
+    }
+
+    .footer-links {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        position: static;
+        flex-wrap: wrap;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero,
+      .about,
+      .solution-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        text-align: center;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .quick-info {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      section {
+        padding: 55px 5%;
+      }
+
+      .quick-info,
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .section-title h2 {
+        font-size: 31px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <header class="nav">
-    <div class="brand">
-      <div class="logo-mark">WFG</div>
-      <div><strong>Viasney Osoria Pichardo</strong><span>Asesora financiera</span></div>
+
+<header>
+  <div class="brand">
+    <div class="logo">WFG</div>
+    <div class="brand-text">
+      <strong>Viasney Osoria Pichardo</strong>
+      <span>Asesora Financiera</span>
     </div>
-    <a class="nav-btn" href="#contacto">Hablemos</a>
-  </header>
+  </div>
 
-  <main>
-    <section class="hero">
-      <div class="hero-copy">
-        <span class="eyebrow">ASESORÍA FINANCIERA PERSONALIZADA</span>
-        <h1>Da el primer paso hacia un futuro financiero más seguro.</h1>
-        <p>Te acompaño a entender tus opciones, proteger lo que has construido y planificar con mayor claridad para el futuro.</p>
-        <div class="actions">
-          <a class="btn primary" href="tel:+17025383856">Llamar ahora</a>
-          <a class="btn secondary" href="#contacto">Conocer más</a>
-        </div>
-        <div class="trust"><span>✓</span> Atención cercana y personalizada</div>
-      </div>
-      <div class="hero-art">
-        <img src="assets/financial-illustration.svg" alt="Ilustración de planificación financiera">
-      </div>
-    </section>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#porque-yo">¿Por qué yo?</a>
+    <a href="#contacto">Contacto</a>
+    <a class="whatsapp-top" href="https://wa.me/17025383856">WhatsApp</a>
+  </nav>
+</header>
 
-    <section class="section">
-      <div class="section-title">
-        <span class="eyebrow">POR QUÉ TRABAJAR CONMIGO</span>
-        <h2>Tu futuro merece un plan.</h2>
-        <p>No tienes que tomar decisiones financieras importantes sin orientación. Mi objetivo es ayudarte a avanzar con información clara y una estrategia que tenga sentido para ti.</p>
-      </div>
-      <div class="cards">
-        <article class="card"><div class="icon">◎</div><h3>Claridad</h3><p>Explicaciones sencillas para que entiendas tus alternativas y tomes decisiones con confianza.</p></article>
-        <article class="card"><div class="icon">↗</div><h3>Planificación</h3><p>Organizamos tus prioridades para trabajar hacia metas financieras de corto y largo plazo.</p></article>
-        <article class="card"><div class="icon">◇</div><h3>Protección</h3><p>Exploramos estrategias que pueden ayudarte a proteger a tu familia y tu patrimonio.</p></article>
-      </div>
-    </section>
+<section class="hero" id="inicio">
+  <div>
+    <h2>Asesoría financiera personalizada</h2>
+    <h1>Viasney Osoria Pichardo</h1>
+    <p>
+      Ayudándote a construir un futuro financiero más seguro,
+      con claridad, planificación y protección.
+    </p>
 
-    <section class="split">
-      <div>
-        <span class="eyebrow">SOLUCIONES</span>
-        <h2>Construyamos una estrategia pensada para ti.</h2>
-        <p>Desde protección y planificación hasta educación financiera, podemos comenzar con una conversación y revisar tus objetivos.</p>
-        <ul>
-          <li>Educación financiera</li>
-          <li>Protección familiar</li>
-          <li>Planificación para el futuro</li>
-          <li>Orientación personalizada</li>
-        </ul>
-      </div>
-      <img src="assets/family-future.svg" alt="Ilustración de familia y futuro financiero">
-    </section>
+    <div class="buttons">
+      <a class="btn btn-primary" href="tel:+17025383856">AGENDA UNA CONSULTA</a>
+      <a class="btn btn-secondary" href="https://wa.me/17025383856">CONTÁCTAME POR WHATSAPP</a>
+    </div>
+  </div>
 
-    <section class="cta" id="contacto">
-      <div>
-        <span class="eyebrow">DA EL PRIMER PASO</span>
-        <h2>Hablemos de tus metas.</h2>
-        <p>Una conversación puede ser el comienzo de un mejor plan financiero.</p>
-      </div>
-      <div class="contact-box">
-        <strong>Viasney Osoria Pichardo</strong>
-        <span>Asesora financiera · WFG</span>
+  <div class="hero-photo">
+    <img src="assets/viasney-osoria.jpg" alt="Viasney Osoria Pichardo, asesora financiera">
+  </div>
+</section>
+
+<div class="quick-info">
+  <div>
+    <strong>Teléfono / WhatsApp</strong>
+    702-538-3856
+  </div>
+  <div>
+    <strong>Correo electrónico</strong>
+    viasney.osoria73@gmail.com
+  </div>
+  <div>
+    <strong>Atención</strong>
+    Presencial y Virtual
+  </div>
+  <div>
+    <strong>Respaldo</strong>
+    WFG
+  </div>
+</div>
+
+<section class="about" id="sobre-mi">
+  <div class="about-card">
+    <h3>Sobre mí</h3>
+    <p>
+      Soy Viasney Osoria Pichardo, asesora financiera comprometida
+      con ayudarte a comprender tus opciones y tomar decisiones
+      financieras con mayor claridad.
+    </p>
+    <a class="btn btn-primary" href="https://wa.me/17025383856">Hablemos</a>
+  </div>
+
+  <div>
+    <div class="section-title" style="text-align:left; margin:0 0 20px;">
+      <span>Conoce mi enfoque</span>
+      <h2>Una atención cercana y personalizada</h2>
+    </div>
+
+    <p>
+      Cada persona y cada familia tiene metas diferentes. Mi objetivo
+      es acompañarte en el proceso de conocer tus alternativas y
+      construir una estrategia pensada para tus necesidades.
+    </p>
+  </div>
+</section>
+
+<section class="services" id="servicios">
+  <div class="section-title">
+    <span>Mis servicios</span>
+    <h2>Soluciones pensadas para ti</h2>
+    <p>
+      Educación, protección y planificación para ayudarte a trabajar
+      hacia un futuro financiero más seguro.
+    </p>
+  </div>
+
+  <div class="service-grid">
+    <div class="service">
+      <h3>Educación financiera</h3>
+      <p>Comprende mejor tus opciones y toma decisiones con mayor claridad.</p>
+    </div>
+
+    <div class="service">
+      <h3>Protección financiera</h3>
+      <p>Explora alternativas para proteger a las personas y metas que más importan.</p>
+    </div>
+
+    <div class="service">
+      <h3>Seguros de vida</h3>
+      <p>Conoce opciones de protección para tu familia y tu futuro.</p>
+    </div>
+
+    <div class="service">
+      <h3>Planificación para el futuro</h3>
+      <p>Construye una estrategia financiera basada en tus objetivos.</p>
+    </div>
+
+    <div class="service">
+      <h3>Preparación para la jubilación</h3>
+      <p>Planifica con anticipación para las metas financieras de tu futuro.</p>
+    </div>
+  </div>
+</section>
+
+<section class="solutions">
+  <div class="solution-grid">
+    <div>
+      <img src="assets/futuro-familiar.svg" alt="Ilustración de familia y futuro financiero">
+    </div>
+
+    <div class="solution-text">
+      <h3>Construyamos una estrategia pensada en ti</h3>
+      <p>
+        Háblame de tus metas y de lo que quieres lograr.
+        Juntos podemos revisar tus opciones de protección y planificación.
+      </p>
+      <a class="btn btn-secondary" href="https://wa.me/17025383856">Escríbeme por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="solutions">
+  <div class="solution-grid">
+    <div class="solution-text">
+      <h3>Da el primer paso hacia un futuro financiero más seguro</h3>
+      <p>
+        Tener un plan comienza con una conversación. Estoy aquí para
+        acompañarte a entender tus opciones.
+      </p>
+      <a class="btn btn-primary" href="tel:+17025383856">Llamar ahora</a>
+    </div>
+
+    <div>
+      <img src="assets/ilustracion-financiera.svg" alt="Ilustración de planificación financiera">
+    </div>
+  </div>
+</section>
+
+<section class="why" id="porque-yo">
+  <div class="section-title">
+    <span>¿Por qué trabajar conmigo?</span>
+    <h2>Claridad, planificación y protección</h2>
+    <p>
+      Un acompañamiento cercano para que puedas avanzar con mayor confianza.
+    </p>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <h3>Atención personalizada</h3>
+      <p>Escucho tus necesidades y metas antes de hablar de opciones.</p>
+    </div>
+
+    <div class="why-card">
+      <h3>Explicación clara</h3>
+      <p>Busco que comprendas tus alternativas y puedas tomar decisiones informadas.</p>
+    </div>
+
+    <div class="why-card">
+      <h3>Acompañamiento</h3>
+      <p>Estoy disponible para acompañarte durante tu proceso de planificación.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="section-title">
+    <span>Hablemos</span>
+    <h2>Tu futuro merece un plan</h2>
+    <p>
+      Da el primer paso y conversemos sobre tus metas.
+    </p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Contáctame</h3>
+      <p><strong>Teléfono:</strong><br>
         <a href="tel:+17025383856">702-538-3856</a>
-        <a class="btn white" href="tel:+17025383856">Contactarme</a>
-      </div>
-    </section>
-  </main>
+      </p>
 
-  <footer>
-    <div><strong>WFG</strong> · Viasney Osoria Pichardo</div>
-    <div>Asesora financiera · 702-538-3856</div>
-  </footer>
+      <p><strong>WhatsApp:</strong><br>
+        <a href="https://wa.me/17025383856">Escríbeme por WhatsApp</a>
+      </p>
+
+      <p><strong>Correo:</strong><br>
+        <a href="mailto:viasney.osoria73@gmail.com">viasney.osoria73@gmail.com</a>
+      </p>
+
+      <p><strong>Atención:</strong><br>
+        Presencial y Virtual
+      </p>
+
+      <br>
+
+      <a class="btn btn-secondary" href="https://wa.me/17025383856">
+        IR A WHATSAPP
+      </a>
+    </div>
+
+    <form action="mailto:viasney.osoria73@gmail.com" method="post" enctype="text/plain">
+      <h3 style="margin-bottom:18px; color:#123b5d;">Déjame un mensaje</h3>
+
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="email" name="correo" placeholder="Tu correo electrónico" required>
+      <input type="tel" name="telefono" placeholder="Tu teléfono">
+
+      <textarea name="mensaje" placeholder="Cuéntame brevemente cómo puedo ayudarte" required></textarea>
+
+      <button class="btn btn-primary" type="submit">
+        Enviar mensaje
+      </button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <strong>WFG | Viasney Osoria Pichardo</strong>
+  <p>Asesora Financiera</p>
+
+  <div class="footer-links">
+    <a href="tel:+17025383856">702-538-3856</a>
+    <a href="mailto:viasney.osoria73@gmail.com">Correo electrónico</a>
+    <a href="https://wa.me/17025383856">WhatsApp</a>
+  </div>
+
+  <p style="margin-top:20px;">
+    © 2026 Viasney Osoria Pichardo. Todos los derechos reservados.
+  </p>
+</footer>
+
 </body>
 </html>
