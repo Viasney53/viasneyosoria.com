@@ -664,7 +664,9 @@
       </a>
     </div>
 
-    <form action="mailto:viasney.osoria73@gmail.com" method="post" enctype="text/plain">
+    <form id="contactForm" action="https://formsubmit.co/viasney.osoria73@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Nuevo mensaje desde mi página web">
+      <input type="hidden" name="_captcha" value="false">
       <h3 style="margin-bottom:18px; color:#123b5d;">Déjame un mensaje</h3>
 
       <input type="text" name="nombre" placeholder="Tu nombre" required>
@@ -677,6 +679,9 @@
         Enviar mensaje
       </button>
     </form>
+    <p id="successMessage" style="display:none; margin-top:18px; color:#168a52; font-weight:600;">
+    ¡Gracias por comunicarte conmigo! He recibido tu mensaje y te responderé pronto.
+</p>
   </div>
 </section>
 
@@ -694,6 +699,34 @@
     © 2026 Viasney Osoria Pichardo. Todos los derechos reservados.
   </p>
 </footer>
+<script>
+const contactForm = document.getElementById("contactForm");
+const successMessage = document.getElementById("successMessage");
 
+contactForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(contactForm);
+
+    try {
+        const response = await fetch(contactForm.action, {
+            method: "POST",
+            body: formData,
+            headers: {
+                "Accept": "application/json"
+            }
+        });
+
+        if (response.ok) {
+            contactForm.reset();
+            successMessage.style.display = "block";
+        } else {
+            alert("No pudimos enviar el mensaje. Por favor, inténtalo nuevamente.");
+        }
+    } catch (error) {
+        alert("No pudimos enviar el mensaje. Por favor, inténtalo nuevamente.");
+    }
+});
+</script>
 </body>
 </html>
