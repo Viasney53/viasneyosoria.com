@@ -670,7 +670,7 @@
       </a>
     </div>
 
-    <form id="contactForm" action="https://formsubmit.co/viasney.osoria73@gmail.com" method="POST">
+    <form id="contactForm" action="https://formsubmit.app/f/pry5m3nff2" method="POST">
       <input type="hidden" name="_subject" value="Nuevo mensaje desde mi página web">
       <input type="hidden" name="_captcha" value="false">
       <h3 style="margin-bottom:18px; color:#123b5d;">Déjame un mensaje</h3>
@@ -722,12 +722,15 @@ contactForm.addEventListener("submit", async function(event) {
                 "Accept": "application/json"
             }
         });
-
-        if (response.ok) {
+      
+        const json = await
+        response.json();
+      
+        if (json.ok) {
             contactForm.reset();
             successMessage.style.display = "block";
         } else {
-            alert("No pudimos enviar el mensaje. Por favor, inténtalo nuevamente.");
+            alert(json.error?.message ||"No pudimos enviar el mensaje. Por favor, inténtalo nuevamente.");
         }
     } catch (error) {
         alert("No pudimos enviar el mensaje. Por favor, inténtalo nuevamente.");
